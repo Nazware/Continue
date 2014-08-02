@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField]
-    GameObject yesButton;
-    [SerializeField]
-    GameObject noButton;
+    GameObject currentStage;
+    int stageNumber = 1;
 
-	void Start ()
+    bool isPlayingStage = false;
+
+    #region Unity Events
+    void Start ()
     {
-	
+        CreateStage(stageNumber);
+        isPlayingStage = true;
 	}
-	
-	void Update ()
+
+    void Update ()
     {
-        var inputs = getInputPositions();
+        var inputs = GetInputPositions();
 
         if (inputs.Count > 0)
         {
@@ -28,18 +31,54 @@ public class GameController : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     var obj = hit.collider.gameObject;
-                    onTouch(input, obj);
+                    OnTouch(input, obj);
                 }
             }
         }
 	}
+    #endregion
 
-    void onTouch(Vector3 touchPos, GameObject touchObject)
+    int CreateStage(int stageNumber)
     {
-        Debug.Log(touchPos + ", " + touchObject.name);
+        if (currentStage != null)
+        {
+            Destroy(currentStage.gameObject);
+            currentStage = null;
+            Resources.UnloadUnusedAssets();
+        }
+
+        var stagePrefab = Resources.Load("Stages/Stage" + stageNumber);
+        if (!stagePrefab)
+        {
+            stageNumber = 1;
+            stagePrefab = Resources.Load("Stages/Stage1");
+        }
+
+        currentStage = Instantiate(stagePrefab) as GameObject;
+        if (currentStage)
+        {
+            var baseStage = currentStage.GetComponent<BaseStage>();
+            baseStage.SetData(this);
+        }
+
+        return stageNumber;
     }
 
-    List<Vector3> getInputPositions()
+    void OnTouch(Vector3 touchPos, GameObject touchObject)
+    {
+        if (!isPlayingStage)
+        {
+            return;
+        }
+
+        var onTouchEvent = touchObject.GetComponent<BaseEvent>();
+        if (onTouchEvent)
+        {
+            onTouchEvent.onTap();
+        }
+    }
+
+    List<Vector3> GetInputPositions()
     {
         var inputPositions = new List<Vector3>();
 
@@ -58,4 +97,43 @@ public class GameController : MonoBehaviour
 
         return inputPositions;
     }
+
+    public void GoesNextStage()
+    {
+        isPlayingStage = false;
+
+        StopAllCoroutines();
+        StartCoroutine(LoadingSample(() =>
+            {
+                isPlayingStage = true;
+
+                stageNumber = CreateStage(stageNumber + 1);
+            }
+        ));
+    }
+
+    public void GameOver()
+    {
+        isPlayingStage = false;
+
+        StopAllCoroutines();
+        StartCoroutine(LoadingSample(() =>
+            {
+                isPlayingStage = true;
+
+                stageNumber = CreateStage(1);
+            }
+        ));
+    }
+
+    #region スタブ
+    public IEnumerator LoadingSample(Action onComplete)
+    {
+        Debug.Log("Loading...");
+        yield return new WaitForSeconds(1);
+
+        Debug.Log("Finish!");
+        onComplete();
+    }
+    #endregion
 }

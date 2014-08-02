@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Test : MonoBehaviour {
-
-	public 
+public class FakeyesEvent : BaseEvent {
 
 	// Use this for initialization
 	void Start () {
@@ -13,5 +11,10 @@ public class Test : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public override void onTap()
+	{
+		Debug.Log("FakeYes");
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Scene1 : BaseScene {
+public class GlassEvent : BaseEvent {
 
 	// Use this for initialization
 	void Start () {
@@ -13,5 +13,8 @@ public class Scene1 : BaseScene {
 	
 	}
 
-
+	public override void onTap()
+	{
+		Debug.Log("Glass");
+	}
 }

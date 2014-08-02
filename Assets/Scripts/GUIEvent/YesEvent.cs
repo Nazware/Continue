@@ -1,18 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class YesEvent : BaceEvent {
+public class YesEvent : BaseEvent {
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 
-	public void onTap(){
+	public override void onTap()
+    {
+        gameObject.SetActive(false);
+        gameController.GoesNextStage();
 	}
 }
