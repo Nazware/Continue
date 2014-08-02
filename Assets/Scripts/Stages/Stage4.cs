@@ -11,6 +11,8 @@ public class Stage4 : BaseStage
 	[SerializeField]
 	GameObject noButtonPrefab;
 	[SerializeField]
+	GameObject noButtonPrefab2;
+	[SerializeField]
 	float rotateSpeed = 0.05f;
 
 	private GameObject yesButton;
@@ -20,8 +22,11 @@ public class Stage4 : BaseStage
 	void Start () {
 		CreateStageObject(titlePrefab, new Vector3(0, 200, -2));
 		yesButton = CreateStageObject(yesButtonPrefab, new Vector3(100f, 0.0f, -4.0f));
-		CreateStageObject(noButtonPrefab, new Vector3(Random.Range(-200.0f, -50.0f),
-		                                              Random.Range(-130.0f, 100.0f),
+		CreateStageObject(noButtonPrefab, new Vector3(-150.0f,
+		                                              -100.0f,
+		                                              -3));	
+		CreateStageObject(noButtonPrefab2, new Vector3(100.0f,
+		                                              50.0f,
 		                                              -3));		
 	}
 	
