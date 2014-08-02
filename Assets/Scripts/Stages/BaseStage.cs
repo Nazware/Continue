@@ -30,6 +30,8 @@ public class BaseStage : MonoBehaviour {
             {
                 baseEvent.SetData(this.gameController);
             }
+
+            obj.transform.parent = transform;
         }
 
         return obj;

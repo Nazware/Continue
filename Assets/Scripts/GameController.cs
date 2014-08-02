@@ -6,6 +6,8 @@ public class GameController : MonoBehaviour
 {
     GameObject currentStage;
 
+    bool isPlayingStage = false;
+
     #region Unity Events
     void Start ()
     {
@@ -35,16 +37,27 @@ public class GameController : MonoBehaviour
 
     void CreateStage(int stageNumber)
     {
-        currentStage = null;
-        Resources.UnloadUnusedAssets();
+        if (currentStage != null)
+        {
+            Destroy(currentStage.gameObject);
+            currentStage = null;
+            Resources.UnloadUnusedAssets();
+        }
 
         currentStage = Instantiate(Resources.Load("Stages/Stage" + stageNumber)) as GameObject;
         var baseStage = currentStage.GetComponent<BaseStage>();
         baseStage.SetData(this);
+
+        isPlayingStage = true;
     }
 
     void OnTouch(Vector3 touchPos, GameObject touchObject)
     {
+        if (!isPlayingStage)
+        {
+            return;
+        }
+
         var onTouchEvent = touchObject.GetComponent<BaseEvent>();
         if (onTouchEvent)
         {
@@ -71,4 +84,24 @@ public class GameController : MonoBehaviour
 
         return inputPositions;
     }
+
+    public void GoesNextStage()
+    {
+        isPlayingStage = false;
+
+        StopAllCoroutines();
+        StartCoroutine("LoadingSample");
+    }
+
+    #region スタブ
+    public IEnumerator LoadingSample()
+    {
+        Debug.Log("Loading...");
+        yield return new WaitForSeconds(2);
+
+        Debug.Log("Finish!");
+        isPlayingStage = true;
+        CreateStage(1);
+    }
+    #endregion
 }
