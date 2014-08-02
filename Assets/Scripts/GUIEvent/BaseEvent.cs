@@ -1,18 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaseScene : MonoBehaviour {
+public class BaseEvent : MonoBehaviour {
 
 	public GameController gameController;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	virtual public void onTap(){
 	}
 
 	public void SetData(GameController gameController){

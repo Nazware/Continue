@@ -4,19 +4,17 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
-    [SerializeField]
-    GameObject yesButton;
-    [SerializeField]
-    GameObject noButton;
+    GameObject currentStage;
 
-	void Start ()
+    #region Unity Events
+    void Start ()
     {
-	
+        CreateStage(1);
 	}
-	
-	void Update ()
+
+    void Update ()
     {
-        var inputs = getInputPositions();
+        var inputs = GetInputPositions();
 
         if (inputs.Count > 0)
         {
@@ -28,18 +26,33 @@ public class GameController : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     var obj = hit.collider.gameObject;
-                    onTouch(input, obj);
+                    OnTouch(input, obj);
                 }
             }
         }
 	}
+    #endregion
 
-    void onTouch(Vector3 touchPos, GameObject touchObject)
+    void CreateStage(int stageNumber)
     {
-        Debug.Log(touchPos + ", " + touchObject.name);
+        currentStage = null;
+        Resources.UnloadUnusedAssets();
+
+        currentStage = Instantiate(Resources.Load("Stages/Stage" + stageNumber)) as GameObject;
+        var baseStage = currentStage.GetComponent<BaseStage>();
+        baseStage.SetData(this);
     }
 
-    List<Vector3> getInputPositions()
+    void OnTouch(Vector3 touchPos, GameObject touchObject)
+    {
+        var onTouchEvent = touchObject.GetComponent<BaseEvent>();
+        if (onTouchEvent)
+        {
+            onTouchEvent.onTap();
+        }
+    }
+
+    List<Vector3> GetInputPositions()
     {
         var inputPositions = new List<Vector3>();
 
