@@ -18,6 +18,7 @@ public class YesEvent : BaseEvent {
 	public override void onTap()
     {
         Debug.Log("Yes");
+        gameObject.SetActive(false);
         gameController.GoesNextStage();
 	}
 }
