@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
 	}
     #endregion
 
-    void CreateStage(int stageNumber)
+    int CreateStage(int stageNumber)
     {
         if (currentStage != null)
         {
@@ -60,6 +60,8 @@ public class GameController : MonoBehaviour
             var baseStage = currentStage.GetComponent<BaseStage>();
             baseStage.SetData(this);
         }
+
+        return stageNumber;
     }
 
     void OnTouch(Vector3 touchPos, GameObject touchObject)
@@ -105,8 +107,7 @@ public class GameController : MonoBehaviour
             {
                 isPlayingStage = true;
 
-                ++stageNumber;
-                CreateStage(stageNumber);
+                stageNumber = CreateStage(stageNumber + 1);
             }
         ));
     }
@@ -119,7 +120,8 @@ public class GameController : MonoBehaviour
         StartCoroutine(LoadingSample(() =>
             {
                 isPlayingStage = true;
-                CreateStage(1);
+
+                stageNumber = CreateStage(1);
             }
         ));
     }
