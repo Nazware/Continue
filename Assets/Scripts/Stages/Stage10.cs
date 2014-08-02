@@ -35,32 +35,32 @@ public class Stage10 : BaseStage
 	void Start ()
 	{
 		CreateStageObject(titlePrefab, new Vector3(0, 200, -2));
-		CreateStageObject(noButtonPrefab, new Vector3(-200.0f,
-		                                              -150.0f,
+		CreateStageObject(noButtonPrefab, new Vector3(-220.0f,
+		                                              -160.0f,
 		                                              -4));
 		CreateStageObject(noButtonPrefab2, new Vector3(0.0f,
-		                                              -150.0f,
+		                                              -160.0f,
 		                                              -4));
-		CreateStageObject(noButtonPrefab3, new Vector3(200.0f,
-		                                              -150.0f,
+		CreateStageObject(noButtonPrefab3, new Vector3(220.0f,
+		                                              -160.0f,
 		                                               -4));
-		CreateStageObject(noButtonPrefab4, new Vector3(-200.0f,
+		CreateStageObject(noButtonPrefab4, new Vector3(-220.0f,
 		                                               -50.0f,
 		                                               -4));
 		CreateStageObject(noButtonPrefab5, new Vector3(0.0f,
 		                                               -50.0f,
 		                                               -4));
-		CreateStageObject(noButtonPrefab5, new Vector3(200.0f,
+		CreateStageObject(noButtonPrefab5, new Vector3(220.0f,
 		                                               -50.0f,
 		                                               -4));
-		CreateStageObject(noButtonPrefab4, new Vector3(-200.0f,
-		                                               50.0f,
+		CreateStageObject(noButtonPrefab4, new Vector3(-220.0f,
+		                                               60.0f,
 		                                               -4));
 		CreateStageObject(noButtonPrefab5, new Vector3(0.0f,
-		                                               50.0f,
+		                                               60.0f,
 		                                               -4));
-		CreateStageObject(noButtonPrefab5, new Vector3(200.0f,
-		                                               50.0f,
+		CreateStageObject(noButtonPrefab5, new Vector3(220.0f,
+		                                               60.0f,
 		                                               -4));
 
 
