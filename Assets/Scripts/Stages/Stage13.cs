@@ -63,12 +63,13 @@ public class Stage13 : BaseStage
 			thetaRad = 0.0f;
 		}
 		
-		yesButton.transform.position = new Vector3(200.0f * Mathf.Cos(thetaRad)-300,-50.0f + (100.0f * Mathf.Sin(thetaRad)), 0.0f);
+		yesButton.transform.position = new Vector3(200.0f * -Mathf.Cos(thetaRad),-50.0f + (100.0f * Mathf.Sin(thetaRad)), 0.0f);
+
 		noButton.transform.position = new Vector3(200.0f * Mathf.Cos(thetaRad) -300,-50.0f + (100.0f * Mathf.Sin(thetaRad)), 0.0f);
 		noButton2.transform.position = new Vector3(200.0f * Mathf.Cos(thetaRad) ,-50.0f + (100.0f * Mathf.Sin(thetaRad)), 0.0f);
 		noButton3.transform.position = new Vector3(200.0f * Mathf.Cos(thetaRad) +300,-50.0f + (100.0f * Mathf.Sin(thetaRad)), 0.0f );
-		noButton4.transform.position = new Vector3(200.0f * Mathf.Cos(thetaRad) ,-50.0f + (100.0f * Mathf.Sin(thetaRad)), 0.0f );
-		noButton5.transform.position = new Vector3(200.0f * Mathf.Cos(thetaRad) ,-50.0f + (100.0f * Mathf.Sin(thetaRad)), 0.0f);
+		noButton4.transform.position = new Vector3(200.0f * Mathf.Cos(thetaRad) -200,-300.0f + (100.0f * Mathf.Sin(thetaRad)), 0.0f );
+		noButton5.transform.position = new Vector3(200.0f * Mathf.Cos(thetaRad) +200,-300.0f + (100.0f * Mathf.Sin(thetaRad)), 0.0f);
 
 	}
 }
