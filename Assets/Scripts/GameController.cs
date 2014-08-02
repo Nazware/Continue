@@ -6,7 +6,7 @@ using System;
 public class GameController : MonoBehaviour
 {
     GameObject currentStage;
-    int stageNumber = 7;
+    int stageNumber = 10;
 
     bool isPlayingStage = false;
 
