@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 58229378cfc4a3241895e8c6dc1fc994
+guid: 1bbc52656d20e3d4f89ee73965a0f331
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -42,25 +42,25 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: c0005_0
+    - name: c0013_0
       rect:
         serializedVersion: 2
-        x: 35
-        y: 156
-        width: 46
-        height: 74
+        x: 44
+        y: 160
+        width: 36
+        height: 76
       alignment: 9
       pivot: {x: .200000003, y: .100000001}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: c0005_1
+    - name: c0013_1
       rect:
         serializedVersion: 2
-        x: 75
-        y: 11
-        width: 109
-        height: 138
+        x: 86
+        y: 16
+        width: 84
+        height: 167
       alignment: 9
-      pivot: {x: .449999988, y: .5}
+      pivot: {x: .550000012, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
