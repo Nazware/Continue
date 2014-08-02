@@ -6,7 +6,7 @@ public class YesEventStage3 : BaseEvent {
 	[SerializeField]
 	float yesSpeed = 100.0f;
 	[SerializeField]
-	float addTime = 3.0f;
+	float addTime = 1.0f;
 	private float nextReturnTime = 0.0f;
 
 	// Use this for initialization
