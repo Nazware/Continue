@@ -70,11 +70,11 @@ public class GameController : MonoBehaviour
         {
             return;
         }
-
+	
         var onTouchEvent = touchObject.GetComponent<BaseEvent>();
         if (onTouchEvent)
         {
-            onTouchEvent.onTap();
+            onTouchEvent.onTap(touchPos);
         }
     }
 
@@ -94,7 +94,6 @@ public class GameController : MonoBehaviour
                 inputPositions.Add(new Vector3(touch.position.x, touch.position.y, 0.0f));
             }
         }
-
         return inputPositions;
     }
 
