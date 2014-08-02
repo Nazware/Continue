@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 public class GameController : MonoBehaviour
 {
     GameObject currentStage;
+    int stageNumber = 1;
 
     bool isPlayingStage = false;
 
     #region Unity Events
     void Start ()
     {
-        CreateStage(1);
+        CreateStage(stageNumber);
+        isPlayingStage = true;
 	}
 
     void Update ()
@@ -44,11 +47,18 @@ public class GameController : MonoBehaviour
             Resources.UnloadUnusedAssets();
         }
 
-        currentStage = Instantiate(Resources.Load("Stages/Stage" + stageNumber)) as GameObject;
-        var baseStage = currentStage.GetComponent<BaseStage>();
-        baseStage.SetData(this);
+        var stagePrefab = Resources.Load("Stages/Stage" + stageNumber);
+        if (!stagePrefab)
+        {
+            stagePrefab = Resources.Load("Stages/Stage1");
+        }
 
-        isPlayingStage = true;
+        currentStage = Instantiate(stagePrefab) as GameObject;
+        if (currentStage)
+        {
+            var baseStage = currentStage.GetComponent<BaseStage>();
+            baseStage.SetData(this);
+        }
     }
 
     void OnTouch(Vector3 touchPos, GameObject touchObject)
@@ -90,18 +100,37 @@ public class GameController : MonoBehaviour
         isPlayingStage = false;
 
         StopAllCoroutines();
-        StartCoroutine("LoadingSample");
+        StartCoroutine(LoadingSample(() =>
+            {
+                isPlayingStage = true;
+
+                ++stageNumber;
+                CreateStage(stageNumber);
+            }
+        ));
+    }
+
+    public void GameOver()
+    {
+        isPlayingStage = false;
+
+        StopAllCoroutines();
+        StartCoroutine(LoadingSample(() =>
+            {
+                isPlayingStage = true;
+                CreateStage(1);
+            }
+        ));
     }
 
     #region スタブ
-    public IEnumerator LoadingSample()
+    public IEnumerator LoadingSample(Action onComplete)
     {
         Debug.Log("Loading...");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         Debug.Log("Finish!");
-        isPlayingStage = true;
-        CreateStage(1);
+        onComplete();
     }
     #endregion
 }
