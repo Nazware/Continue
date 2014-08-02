@@ -9,10 +9,6 @@ public class Stage9 : BaseStage {
 	GameObject yesButtonPrefab;
 	[SerializeField]
 	GameObject noButtonPrefab;
-	[SerializeField]
-	GameObject noButtonPrefab2;
-	[SerializeField]
-	GameObject noButtonPrefab3;
 
 	
 	private GameObject yesButton;
@@ -34,10 +30,10 @@ public class Stage9 : BaseStage {
 		noButton = CreateStageObject(noButtonPrefab, new Vector3(200.0f,
 		                                                         40.0f,
 		                                                         -3));
-		noButton2 = CreateStageObject(noButtonPrefab2, new Vector3(0.0f,
+		noButton2 = CreateStageObject(noButtonPrefab, new Vector3(0.0f,
 		                                                           -40.0f,
 		                                                           -3));
-		noButton3 = CreateStageObject(noButtonPrefab2, new Vector3(0.0f,
+		noButton3 = CreateStageObject(noButtonPrefab, new Vector3(0.0f,
 		                                                           -40.0f,
 		                                                           -3));
 	}
