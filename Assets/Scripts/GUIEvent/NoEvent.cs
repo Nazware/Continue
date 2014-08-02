@@ -15,7 +15,7 @@ public class NoEvent : BaseEvent {
 
 	}
 
-	public override void onTap()
+	public override void onTap(Vector3 touchPos)
     {
         Debug.Log("No");
 	}

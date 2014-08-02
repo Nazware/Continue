@@ -15,7 +15,7 @@ public class YesEvent : BaseEvent {
 	
 	}
 
-	public override void onTap()
+	public override void onTap(Vector3 touchPos)
     {
         gameObject.SetActive(false);
         gameController.GoesNextStage();

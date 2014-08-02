@@ -5,7 +5,7 @@ public class BaseEvent : MonoBehaviour {
 
 	public GameController gameController;
 
-	virtual public void onTap(){
+	virtual public void onTap(Vector3 touchPos){
 	}
 
 	public void SetData(GameController gameController){
