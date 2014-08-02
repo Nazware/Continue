@@ -5,15 +5,7 @@ public class BaseStage : MonoBehaviour {
 
 	public GameController gameController;
 
-	void Start ()
-    {
-	
-	}
-	
-	void Update ()
-    {
-	
-	}
+
 
 	public void SetData(GameController gameController)
     {
