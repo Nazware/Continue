@@ -20,7 +20,8 @@ public class Stage11 : BaseStage {
 		CreateStageObject(noButtonPrefab, new Vector3(Random.Range(-200.0f, -50.0f),
 		                                              Random.Range(-130.0f, 100.0f),
 		                                              -4));
-		CreateStageObject(glassPrefab, new Vector3(0.0f, 0.0f, -3.0f));
+
+		CreateStageObject(glassPrefab, new Vector3(0.0f, 0.0f, -5.0f));
 	}
 
 	void Update () {
