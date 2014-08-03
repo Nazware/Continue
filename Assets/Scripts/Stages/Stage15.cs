@@ -57,7 +57,7 @@ public class Stage15 : BaseStage {
 			yesSpeed = yesSpeed * -1.0f;
 			nextReturnTime = Time.time + addTime;
 		}
-		yesButton.transform.Translate(-30.0f * yesSpeed * Time.deltaTime, 0.0f, 0.0f);	
+		yesButton.transform.Translate(-20.0f * yesSpeed * Time.deltaTime, 0.0f, 0.0f);	
 		
 	}
 }

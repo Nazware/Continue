@@ -63,6 +63,7 @@ public class GameController : MonoBehaviour
             stageNumber = 0;
 			stagePrefab = Resources.Load("Stages/GameClear");
         }
+		//stagePrefab = Resources.Load("Stages/GameClear");
 
 
         currentStage = Instantiate(stagePrefab) as GameObject;
