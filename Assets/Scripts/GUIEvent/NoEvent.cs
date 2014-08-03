@@ -3,10 +3,12 @@ using System.Collections;
 
 public class NoEvent : BaseEvent {
 
+	public UseAudio gameOverSE;
+
 	// Use this for initialization
 	void Start ()
     {
-	
+		 
 	}
 	
 	// Update is called once per frame
@@ -17,8 +19,8 @@ public class NoEvent : BaseEvent {
 
 	public override void onTap(Vector3 touchPos)
     {
-        Debug.Log("No");
-        gameObject.SetActive(false);
+		gameOverSE.sePlay();
+        //gameObject.SetActive(false);
         gameController.GameOver();
 	}
 }
