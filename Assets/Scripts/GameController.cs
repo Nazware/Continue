@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     GameObject currentStage;
     int stageNumber = 1;
 
+    GameObject countdown;
+
     bool isPlayingStage = false;
 
     #region Unity Events
@@ -44,6 +46,12 @@ public class GameController : MonoBehaviour
         {
             Destroy(currentStage.gameObject);
             currentStage = null;
+            if (countdown != null)
+            {
+                Destroy(countdown.gameObject);
+                countdown = null;
+            }
+
             Resources.UnloadUnusedAssets();
         }
 
@@ -59,6 +67,15 @@ public class GameController : MonoBehaviour
         {
             var baseStage = currentStage.GetComponent<BaseStage>();
             baseStage.SetData(this);
+
+            var timer = Instantiate(Resources.Load("CountdownTimer")) as GameObject;
+            if (timer)
+            {
+                countdown = timer;
+
+                var controller = countdown.GetComponent<CountdownController>();
+                controller.Initialize(baseStage.countdownSeconds);
+            }
         }
 
         return stageNumber;

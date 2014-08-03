@@ -4,8 +4,7 @@ using System.Collections;
 public class BaseStage : MonoBehaviour {
 
 	public GameController gameController;
-
-
+    public int countdownSeconds = 9;
 
 	public void SetData(GameController gameController)
     {
