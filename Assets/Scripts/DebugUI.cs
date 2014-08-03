@@ -109,6 +109,8 @@ public class DebugUI : MonoBehaviour
 	private void Start()
 	{
 		gs = GameStatus.Instance();
+
+		//gs.score = 997;
 	}
 
 

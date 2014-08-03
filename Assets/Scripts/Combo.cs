@@ -13,15 +13,16 @@ public class Combo : MonoBehaviour
 
 	private GUITexture[] guitxNumbers;
 
-
-
-	private void Start()
+		private void Start()
 	{
 		posBase = transform.position;
 
 		bFadeIn = false;
 		bFadeOut = false;
 		pauseCount = 0;
+
+		scaleEffect = 1.0f;
+		bScaleUp = true;
 	}
 
 	private int lastscore;
@@ -37,21 +38,9 @@ public class Combo : MonoBehaviour
 		goNum010.GetComponent<SpriteRenderer>().sprite = spNum[score_oxo];
 		goNum001.GetComponent<SpriteRenderer>().sprite = spNum[score_oox];
 
-//		alphacombo = (transform.position.x - 360) / 255.0f;
-//		if (alphacombo > 1.0f)
-//		{
-//			alphacombo = 1.0f;
-//		}
-//		if (alphacombo < 0.0f)
-//		{
-//			alphacombo = 0.0f;
-//		}
-//
-//		GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, alphacombo);
-		
-//		goNum100.SetActive( (score_xoo > 0) );
-//		goNum010.SetActive( (score_oxo > 0) );
-//		goNum001.SetActive( (score_oox > 0) );
+		goNum100.SetActive(lastscore >= 100);
+		goNum010.SetActive(lastscore >= 10);
+		//goNum001.SetActive(lastscore >= 0);
 	}
 
 	private Vector3 posBase;
@@ -100,6 +89,38 @@ public class Combo : MonoBehaviour
 		return true;
 	}
 
+	private float scaleEffect;
+	private bool bScaleUp;
+
+	private void UpdateScale()
+	{
+
+		if (bScaleUp)
+		{
+			scaleEffect += 0.01f;
+			if (scaleEffect > 1.1f)
+			{
+				bScaleUp = false;
+			}
+		}
+		else
+		{
+			scaleEffect -= 0.01f;
+			if (scaleEffect < 0.9f)
+			{
+				bScaleUp = true;
+			}
+		}
+		
+		transform.localScale = new Vector3(scaleEffect, scaleEffect, 1.0f);
+
+		posBase.y = 120;
+		posBase.x = 360;
+
+		transform.position = posBase;
+
+	}
+
 	private void Update()
 	{
 		if (pauseCount > 0)
@@ -109,13 +130,19 @@ public class Combo : MonoBehaviour
 		}
 		else
 		{
+			if ( GameStatus.Instance().score >= 999 )
+			{
+				CheckScore();
+				UpdateComboScore();
+				UpdateScale();
+				return;
+			}
+
 			if (bFadeOut)
 			{
 				FadeOut();
 			}
 		}
-
-
 
 		if (bFadeIn)
 		{
