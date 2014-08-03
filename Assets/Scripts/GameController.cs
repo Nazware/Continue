@@ -97,7 +97,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    List<Vector3> GetInputPositions()
+    public List<Vector3> GetInputPositions()
     {
         var inputPositions = new List<Vector3>();
 
@@ -145,7 +145,34 @@ public class GameController : MonoBehaviour
             {
                 isPlayingStage = true;
 
-                stageNumber = CreateStage(1);
+                stageNumber = 0;
+
+                if (currentStage != null)
+                {
+                    Destroy(currentStage.gameObject);
+                    currentStage = null;
+                    if (countdown != null)
+                    {
+                        Destroy(countdown.gameObject);
+                        countdown = null;
+                    }
+
+                    Resources.UnloadUnusedAssets();
+                }
+
+                var gameoverPrefab = Resources.Load("Stages/Gameover");
+                if (!gameoverPrefab)
+                {
+                    stageNumber = 1;
+                    gameoverPrefab = Resources.Load("Stages/Stage1");
+                }
+
+                currentStage = Instantiate(gameoverPrefab) as GameObject;
+                if (currentStage)
+                {
+                    var baseStage = currentStage.GetComponent<BaseStage>();
+                    baseStage.SetData(this);
+                }
             }
         ));
     }
@@ -154,7 +181,7 @@ public class GameController : MonoBehaviour
     public IEnumerator LoadingSample(Action onComplete)
     {
         Debug.Log("Loading...");
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.5f);
 
         Debug.Log("Finish!");
         onComplete();
