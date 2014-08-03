@@ -20,11 +20,17 @@ public class GameClear : BaseStage
 	GameObject illust4;
 	[SerializeField]
 	GameObject illust5;
+	
+	[SerializeField]
+	GameObject yesButtonPrefab;
 
 	private GameObject illustPos;
 
 	private void Start()
 	{
+		
+		CreateStageObject(yesButtonPrefab, new Vector3(350.0f,290.0f,-4));
+
 		CreateStageObject(illust1, new Vector3(-300,-300,-3));
 		CreateStageObject(illust2, new Vector3(-150,-300,-3));
 		CreateStageObject(illust3, new Vector3(0,-300,-3));

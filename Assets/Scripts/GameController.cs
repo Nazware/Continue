@@ -63,6 +63,7 @@ public class GameController : MonoBehaviour
             stageNumber = 0;
 			stagePrefab = Resources.Load("Stages/GameClear");
         }
+		//stagePrefab = Resources.Load("Stages/GameClear");
 
 
         currentStage = Instantiate(stagePrefab) as GameObject;
@@ -119,6 +120,11 @@ public class GameController : MonoBehaviour
 
     public void GoesNextStage()
     {
+        if (!isPlayingStage)
+        {
+            return;
+        }
+
         isPlayingStage = false;
 
         StopAllCoroutines();
@@ -138,6 +144,8 @@ public class GameController : MonoBehaviour
         {
             return;
         }
+
+		GameStatus.Instance().score = 0;
 
         isPlayingStage = false;
 
