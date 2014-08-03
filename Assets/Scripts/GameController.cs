@@ -119,6 +119,11 @@ public class GameController : MonoBehaviour
 
     public void GoesNextStage()
     {
+        if (!isPlayingStage)
+        {
+            return;
+        }
+
         isPlayingStage = false;
 
         StopAllCoroutines();
