@@ -21,5 +21,8 @@ public class YesEvent : BaseEvent {
 		Instantiate(tapParticle, gameObject.transform.position, tapParticle.transform.rotation);
         gameObject.SetActive(false);
         gameController.GoesNextStage();
+
+
+		GameStatus.Instance().score += 1;
 	}
 }
