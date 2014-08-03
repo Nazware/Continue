@@ -12,11 +12,11 @@ public class Stage2 : BaseStage
 	
 	void Start () {
 		CreateStageObject(titlePrefab, new Vector3(0, 200, -2));
-		CreateStageObject(yesButtonPrefab, new Vector3(0.0f,
-		                                               40.0f,
+		CreateStageObject(yesButtonPrefab, new Vector3(200.0f,
+		                                               100.0f,
 		                                               -3));
-		CreateStageObject(noButtonPrefab, new Vector3(0.0f,
-		                                              -60.0f,
+		CreateStageObject(noButtonPrefab, new Vector3(-200.0f,
+		                                              -100.0f,
 		                                              -4));
 	}
 
