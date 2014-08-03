@@ -19,13 +19,13 @@ public class Stage4 : BaseStage
 	// Use this for initialization
 	void Start () {
 		CreateStageObject(titlePrefab, new Vector3(0, 200, -2));
-		yesButton = CreateStageObject(yesButtonPrefab, new Vector3(100f, 0.0f, -4.0f));
-		CreateStageObject(noButtonPrefab, new Vector3(-150.0f,
+		yesButton = CreateStageObject(yesButtonPrefab, new Vector3(100f, 0.0f, -3.0f));
+		CreateStageObject(noButtonPrefab, new Vector3(-200.0f,
 		                                              -100.0f,
-		                                              -3));	
-		CreateStageObject(noButtonPrefab, new Vector3(100.0f,
-		                                              50.0f,
-		                                              -3));		
+		                                              -2));	
+		CreateStageObject(noButtonPrefab, new Vector3(210.0f,
+		                                              100.0f,
+		                                              -2));		
 	}
 	
 	// Update is called once per frame

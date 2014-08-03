@@ -11,7 +11,7 @@ public class Stage3 : BaseStage {
 	GameObject noButtonPrefab;
 
 	[SerializeField]
-	float yesSpeed = 80.0f;
+	float yesSpeed = 70.0f;
 	[SerializeField]
 	float addTime = 1.0f;
 	private float nextReturnTime = 0.0f;
@@ -20,13 +20,13 @@ public class Stage3 : BaseStage {
 
 	void Start () {
 		CreateStageObject(titlePrefab, new Vector3(0, 200, -2));
-		yesButton = CreateStageObject(yesButtonPrefab, new Vector3(100.0f,
+		yesButton = CreateStageObject(yesButtonPrefab, new Vector3(0.0f,
 		                                                           40.0f,
 		                                                           -3));
 		CreateStageObject(noButtonPrefab, new Vector3(0.0f,
 		                                              -60.0f,
 		                                              -4));
-		nextReturnTime = Time.time + addTime;
+		nextReturnTime = Time.time + addTime / 2;
 	}
 
 	void Update () {
