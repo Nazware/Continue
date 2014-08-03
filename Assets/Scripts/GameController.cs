@@ -74,7 +74,7 @@ public class GameController : MonoBehaviour
                 countdown = timer;
 
                 var controller = countdown.GetComponent<CountdownController>();
-                controller.Initialize(baseStage.countdownSeconds);
+                controller.Initialize(baseStage.countdownSeconds, this);
             }
         }
 
@@ -146,7 +146,7 @@ public class GameController : MonoBehaviour
     public IEnumerator LoadingSample(Action onComplete)
     {
         Debug.Log("Loading...");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.3f);
 
         Debug.Log("Finish!");
         onComplete();

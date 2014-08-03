@@ -29,7 +29,7 @@ public class Stage12 : BaseStage {
 		                                                         -4));
 		
 		
-		noButton.transform.localScale = new Vector3 (50,100,50);	     
+		noButton.transform.localScale = new Vector3 (45,90,45);	     
 		
 		nextReturnTime = Time.time + addTime;
 	}

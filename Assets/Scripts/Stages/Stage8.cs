@@ -9,8 +9,6 @@ public class Stage8 : BaseStage {
 	GameObject yesButtonPrefab;
 	[SerializeField]
 	GameObject noButtonPrefab;
-	[SerializeField]
-	GameObject noButtonPrefab2;
 	
 	[SerializeField]
 	float yesSpeed = 50.0f;
@@ -30,7 +28,7 @@ public class Stage8 : BaseStage {
 		noButton = CreateStageObject(noButtonPrefab, new Vector3(-200.0f,
 		                                              -60.0f,
 		                                              -4));
-		noButton2 = CreateStageObject(noButtonPrefab2, new Vector3(100.0f,
+		noButton2 = CreateStageObject(noButtonPrefab, new Vector3(100.0f,
 		                                              -60.0f,
 		                                              -4));
 

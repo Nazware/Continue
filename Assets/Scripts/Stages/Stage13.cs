@@ -10,15 +10,6 @@ public class Stage13 : BaseStage
 	[SerializeField]
 	GameObject noButtonPrefab;
 	[SerializeField]
-	GameObject noButtonPrefab2;
-	[SerializeField]
-	GameObject noButtonPrefab3;
-	[SerializeField]
-	GameObject noButtonPrefab4;
-	[SerializeField]
-	GameObject noButtonPrefab5;
-	
-	[SerializeField]
 	float rotateSpeed = 0.05f;
 	
 	private GameObject yesButton;
@@ -37,16 +28,16 @@ public class Stage13 : BaseStage
 		noButton = CreateStageObject(noButtonPrefab, new Vector3(-220.0f,
 		                                              -160.0f,
 		                                              -4));
-		noButton2 = CreateStageObject(noButtonPrefab2, new Vector3(220.0f,
+		noButton2 = CreateStageObject(noButtonPrefab, new Vector3(220.0f,
 		                                               -160.0f,
 		                                               -4));
-		noButton3 = CreateStageObject(noButtonPrefab3, new Vector3(0.0f,
+		noButton3 = CreateStageObject(noButtonPrefab, new Vector3(0.0f,
 		                                               -50.0f,
 		                                               -4));
-		noButton4 = CreateStageObject(noButtonPrefab4, new Vector3(-220.0f,
+		noButton4 = CreateStageObject(noButtonPrefab, new Vector3(-220.0f,
 		                                               60.0f,
 		                                               -4));
-		noButton5 = CreateStageObject(noButtonPrefab5, new Vector3(220.0f,
+		noButton5 = CreateStageObject(noButtonPrefab, new Vector3(220.0f,
 		                                               60.0f,
 		                                               -4));
 		
