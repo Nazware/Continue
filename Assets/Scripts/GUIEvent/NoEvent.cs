@@ -18,5 +18,7 @@ public class NoEvent : BaseEvent {
 	public override void onTap(Vector3 touchPos)
     {
         Debug.Log("No");
+        gameObject.SetActive(false);
+        gameController.GameOver();
 	}
 }

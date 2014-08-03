@@ -133,6 +133,11 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        if (!isPlayingStage)
+        {
+            return;
+        }
+
         isPlayingStage = false;
 
         StopAllCoroutines();
@@ -149,7 +154,7 @@ public class GameController : MonoBehaviour
     public IEnumerator LoadingSample(Action onComplete)
     {
         Debug.Log("Loading...");
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(0.8f);
 
         Debug.Log("Finish!");
         onComplete();
