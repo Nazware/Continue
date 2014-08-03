@@ -14,7 +14,7 @@ public class BackgroundController : MonoBehaviour {
 	}
 
 	public void CheangeBackground(){
-		int background_ID = Random.Range(1,14);
+		int background_ID = Random.Range(1,13);
 		gameObject.renderer.material = Resources.Load("Materials/background_"+background_ID) as Material;
 	}
 }
