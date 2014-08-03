@@ -130,6 +130,11 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+        if (!isPlayingStage)
+        {
+            return;
+        }
+
         isPlayingStage = false;
 
         StopAllCoroutines();
