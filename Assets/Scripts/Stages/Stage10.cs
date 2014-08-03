@@ -9,22 +9,6 @@ public class Stage10 : BaseStage
 	GameObject yesButtonPrefab;
 	[SerializeField]
 	GameObject noButtonPrefab;
-	[SerializeField]
-	GameObject noButtonPrefab2;
-	[SerializeField]
-	GameObject noButtonPrefab3;
-	[SerializeField]
-	GameObject noButtonPrefab4;
-	[SerializeField]
-	GameObject noButtonPrefab5;
-	[SerializeField]
-	GameObject noButtonPrefab6;
-	[SerializeField]
-	GameObject noButtonPrefab7;
-	[SerializeField]
-	GameObject noButtonPrefab8;
-	[SerializeField]
-	GameObject noButtonPrefab9;
 	
 	[SerializeField]
 	float rotateSpeed = 0.05f;
@@ -38,28 +22,28 @@ public class Stage10 : BaseStage
 		CreateStageObject(noButtonPrefab, new Vector3(-220.0f,
 		                                              -160.0f,
 		                                              -4));
-		CreateStageObject(noButtonPrefab2, new Vector3(0.0f,
+		CreateStageObject(noButtonPrefab, new Vector3(0.0f,
 		                                              -160.0f,
 		                                              -4));
-		CreateStageObject(noButtonPrefab3, new Vector3(220.0f,
+		CreateStageObject(noButtonPrefab, new Vector3(220.0f,
 		                                              -160.0f,
 		                                               -4));
-		CreateStageObject(noButtonPrefab4, new Vector3(-220.0f,
+		CreateStageObject(noButtonPrefab, new Vector3(-220.0f,
 		                                               -50.0f,
 		                                               -4));
-		CreateStageObject(noButtonPrefab5, new Vector3(0.0f,
+		CreateStageObject(noButtonPrefab, new Vector3(0.0f,
 		                                               -50.0f,
 		                                               -4));
-		CreateStageObject(noButtonPrefab5, new Vector3(220.0f,
+		CreateStageObject(noButtonPrefab, new Vector3(220.0f,
 		                                               -50.0f,
 		                                               -4));
-		CreateStageObject(noButtonPrefab4, new Vector3(-220.0f,
+		CreateStageObject(noButtonPrefab, new Vector3(-220.0f,
 		                                               60.0f,
 		                                               -4));
-		CreateStageObject(noButtonPrefab5, new Vector3(0.0f,
+		CreateStageObject(noButtonPrefab, new Vector3(0.0f,
 		                                               60.0f,
 		                                               -4));
-		CreateStageObject(noButtonPrefab5, new Vector3(220.0f,
+		CreateStageObject(noButtonPrefab, new Vector3(220.0f,
 		                                               60.0f,
 		                                               -4));
 

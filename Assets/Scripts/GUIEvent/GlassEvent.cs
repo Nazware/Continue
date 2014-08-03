@@ -22,7 +22,7 @@ public class GlassEvent : BaseEvent {
 
 	public override void onTap(Vector3 touchPos)
 	{
-		var obj = Instantiate(clackImage, new Vector3(0.0f, 0.0f, -1.0f), clackImage.transform.rotation) as GameObject;
+		var obj = Instantiate(clackImage, new Vector3(0.0f, 0.0f, -6.0f), clackImage.transform.rotation) as GameObject;
 		obj.transform.parent = gameObject.transform;
 		clackSE.sePlay();
 		tapCount++;
