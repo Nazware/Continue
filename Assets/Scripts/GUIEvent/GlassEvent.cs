@@ -12,7 +12,7 @@ public class GlassEvent : BaseEvent {
 	public UseAudio clackSE;
 	// Use this for initialization
 	void Start () {
-		tapParticle = Resources.Load("particle/GlassBreakParticle") as GameObject;
+		tapParticle = Resources.Load("particle/GlassCrashParticle") as GameObject;
 	}
 	
 	// Update is called once per frame

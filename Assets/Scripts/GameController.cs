@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
 
     bool isPlayingStage = false;
 
+	public GameObject backgroundController;
+
     #region Unity Events
     void Start ()
     {
@@ -124,6 +126,7 @@ public class GameController : MonoBehaviour
                 isPlayingStage = true;
 
                 stageNumber = CreateStage(stageNumber + 1);
+				backgroundController.GetComponent<BackgroundController>().CheangeBackground();
             }
         ));
     }
