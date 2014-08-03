@@ -22,7 +22,10 @@ public class YesEvent : BaseEvent {
         gameObject.SetActive(false);
         gameController.GoesNextStage();
 
-
 		GameStatus.Instance().score += 1;
+		if (GameStatus.Instance().score > 999)
+		{
+			GameStatus.Instance().score = 999;
+		}
 	}
 }
