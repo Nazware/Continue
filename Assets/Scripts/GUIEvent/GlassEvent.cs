@@ -10,9 +10,14 @@ public class GlassEvent : BaseEvent {
 	public int breakCount = 5;
 	private GameObject tapParticle;
 	public UseAudio clackSE;
+	public bool matFlug = false;
 	// Use this for initialization
 	void Start () {
 		tapParticle = Resources.Load("particle/GlassCrashParticle") as GameObject;
+		if(matFlug) {
+			int id = Random.Range(1, 11);
+			gameObject.renderer.material = Resources.Load("Materials/GlassPicture"+id) as Material;
+		}
 	}
 	
 	// Update is called once per frame
