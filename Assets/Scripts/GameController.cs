@@ -6,7 +6,7 @@ using System;
 public class GameController : MonoBehaviour
 {
     GameObject currentStage;
-    int stageNumber = 1;
+    int stageNumber = 23;
 
     GameObject countdown;
 
