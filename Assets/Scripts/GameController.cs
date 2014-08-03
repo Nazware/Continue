@@ -139,6 +139,8 @@ public class GameController : MonoBehaviour
             return;
         }
 
+		GameStatus.Instance().score = 0;
+
         isPlayingStage = false;
 
         StopAllCoroutines();

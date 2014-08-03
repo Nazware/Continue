@@ -49,9 +49,9 @@ public class Combo : MonoBehaviour
 //
 //		GetComponent<SpriteRenderer>().color = new Color(1.0f, 1.0f, 1.0f, alphacombo);
 		
-		goNum100.SetActive( (score_xoo > 0) );
-		goNum010.SetActive( (score_oxo > 0) );
-		goNum001.SetActive( (score_oox > 0) );
+//		goNum100.SetActive( (score_xoo > 0) );
+//		goNum010.SetActive( (score_oxo > 0) );
+//		goNum001.SetActive( (score_oox > 0) );
 	}
 
 	private Vector3 posBase;
@@ -61,7 +61,7 @@ public class Combo : MonoBehaviour
 
 	private void FadeIn()
 	{
-		posBase.x -= 16;
+		posBase.x -= 24;
 		if (posBase.x < 360)
 		{
 			posBase.x = 360;
@@ -75,7 +75,7 @@ public class Combo : MonoBehaviour
 
 	private void FadeOut()
 	{
-		posBase.y += 16;
+		posBase.y += 36;
 		if (posBase.y > 360)
 		{
 			posBase.y = 120;
@@ -84,6 +84,20 @@ public class Combo : MonoBehaviour
 		}
 		
 		transform.position = posBase;
+	}
+
+	private bool CheckScore()
+	{
+		int score = GameStatus.Instance().score;
+		
+		if ( (lastscore == score) || (score == 0) )
+		{
+			return false;
+		}
+		
+		lastscore = score;
+
+		return true;
 	}
 
 	private void Update()
@@ -109,17 +123,13 @@ public class Combo : MonoBehaviour
 		}
 		else
 		{
-			int score = GameStatus.Instance().score;
-
-			if (lastscore == score)
+			if ( CheckScore() )
 			{
-				return;
+				posBase.y = 120;
+				posBase.x = 840;
+				bFadeOut = false;
+				bFadeIn = true;
 			}
-
-			lastscore = score;
-			
-			bFadeIn = true;
-
 		}
 
 		UpdateComboScore();
